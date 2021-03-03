@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, Component, } from 'react-native';
 import { planets } from '../PlanetList/planets';
+import ShowMoreText from 'react-show-more-text';
 
 
 
@@ -16,14 +17,15 @@ const getImage = (title) => {
     }
 };
 
-const Item = ({ title, location, description, navigation, route }) => (
+const Item = ({ title, location, description, navigation }) => (
     <View>
         <View style={styles.listItems}>
             <Image source={getImage(title)} style={styles.logo} ></Image>
         </View>
         <Text>Όνομα Πλανήτη: {title}</Text>
         <Text>Τοποθεσία: {location}</Text>
-        <Button color = 'green' title="Next"onPress={() => navigation.push('Details', {description})}></Button>
+        <Text>Περιγραφή</Text>
+        <Text> {description}</Text>
     </View>
   );
 
@@ -43,13 +45,13 @@ const LearnScreen = ({ navigation, route }) => {
                   )}
                 keyExtractor={item => item.id}
             />
-            <Button color= 'black' title = 'HOme' onPress={() => navigation.navigate('Home') }></Button>
+            <Button color= 'black' title = 'Info swsto' onPress={() => navigation.navigate('Info', {planet: item}) }></Button>
         </View>
     )
 }
 
 
-export default LearnScreen;
+
 
 const styles = StyleSheet.create ({
     logo: {
@@ -65,3 +67,6 @@ const styles = StyleSheet.create ({
         alignSelf: 'center',
     },
 });
+
+
+export default LearnScreen;
