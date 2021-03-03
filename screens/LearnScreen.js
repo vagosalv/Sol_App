@@ -1,42 +1,49 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, Component, } from 'react-native';
 import { planets } from '../PlanetList/planets';
+
+
+
 const mars = require('../img/mars.png');
+const neptune = require('../img/neptune.png')
 
 const getImage = (title) => {
     switch (title) {
-        case 'mars':
+        case 'Άρης':
             return mars;
+        case 'Ποσειδώνας':
+            return neptune;
     }
 };
 
-const Item = ({ title, image, location }) => (
+const Item = ({ title, location, description, navigation, route }) => (
     <View>
         <View style={styles.listItems}>
             <Image source={getImage(title)} style={styles.logo} ></Image>
         </View>
-        <Text>Planet Name: {title}</Text>
-        <Text>Location: {location}</Text>
+        <Text>Όνομα Πλανήτη: {title}</Text>
+        <Text>Τοποθεσία: {location}</Text>
+        <Button color = 'green' title="Next"onPress={() => navigation.push('Details', {description})}></Button>
     </View>
   );
 
 
-const LearnScreen = ({ navigation }) => {
-
-    const renderItem = ({ item }) => (
-        <Item title={item.title} location={item.location} image={item.image} />
-      );
+const LearnScreen = ({ navigation, route }) => {
+    //const renderItem = ({ item }) => (
+        //<Item title={item.title} location={item.location} image={item.image} description={item.description} />
+     // );
     
-
-
     return (
         <View>
-            <Text>Lista apo planhtes</Text>
+            <Text>Πλανήτες</Text>
             <FlatList
                 data={planets}
-                renderItem={renderItem}
+                renderItem={({ item }) => (
+                    <Item title={item.title} location={item.location} image={item.image} description={item.description} />
+                  )}
                 keyExtractor={item => item.id}
             />
+            <Button color= 'black' title = 'HOme' onPress={() => navigation.navigate('Home') }></Button>
         </View>
     )
 }
