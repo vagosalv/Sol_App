@@ -10,7 +10,7 @@ const HomeScreen = ({ navigation}) => {
                 <Button title="Διαστημικα Νεα" color="black" onPress={() => navigation.navigate('News')}></Button>
             </View>
             <View style={styles.buttons}>
-                <Button title="Γνωση" color="black"></Button>
+                <Button title="Γνωση" color="black" onPress={() => navigation.navigate('Learn')}></Button>
             </View>
             <View style={styles.buttons}>
                 <Button title="Κουιζ" color="black"></Button>
