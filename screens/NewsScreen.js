@@ -16,8 +16,6 @@ const NewsScreen = ({navigation, route}) => {
                 </ScrollView>
                 
             </View>
-            <View style={styles.buttons}>
-            </View>
         </View>
     );
 };
