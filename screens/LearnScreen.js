@@ -1,10 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, Component, StatusBar, ScrollView,} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { planets } from '../PlanetList/planets';
-import InfoScreen from './InfoScreen';
-import ShowMoreText from 'react-show-more-text';
-
 
 
 const mars = require('../img/mars.png');
@@ -22,25 +18,22 @@ const getImage = (title) => {
     }
 };
 
-const Item = ({ title, location, description, navigation }) => (
+const Item = ({ title, location}) => (
     <View style={styles.container}>
         <View style={styles.listItems}>
             <Image source={getImage(title)} style={styles.logo} ></Image>
-            <Text>Όνομα Πλανήτη: {title}</Text>
-            <Text>Τοποθεσία: {location}</Text>
+            <Text style={styles.title}>Όνομα Πλανήτη: {title}</Text>
+            <Text style={styles.title}>Τοποθεσία: {location}</Text>
         </View>
     </View>
-    //<Text>Περιγραφή:  {description}</Text>
+
   );
 
 
 const LearnScreen = ({ navigation, route }) => {
-    //const renderItem = ({ item }) => (
-        //<Item title={item.title} location={item.location} image={item.image} description={item.description} />
-     // );
     return (
         <View>
-            <Text>Πλανήτες</Text>
+            <Text style={styles.category}>Πλανήτες</Text>
             <FlatList
                 data={planets}
                 renderItem= {({item}) => (
@@ -56,28 +49,38 @@ const LearnScreen = ({ navigation, route }) => {
 }
 
 
-
-
 const styles = StyleSheet.create ({
     logo: {
         width: 50,
         height: 50,
+        borderRadius: 50,
     },
-
     listItems: {
         width: '80%',
         height: '80%',
-        marginTop: 25,
+        marginTop: 15,
         backgroundColor: 'lightgrey',
         borderRadius: 10,
         left: 20,
         right: 20,
+        padding: 15,
     },
-
     container: {
         flex: 1,
         flexDirection: 'column',
-        marginTop: StatusBar.currentHeight || 0,
+    },
+    category: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        textDecorationLine: 'underline',
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 15,
+        left: 60,
+        bottom: 30,
+        letterSpacing: 1,
     },
 });
 

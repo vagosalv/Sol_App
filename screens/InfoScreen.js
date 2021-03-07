@@ -3,13 +3,10 @@ import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, Comp
 import { planets } from '../PlanetList/planets';
 
 
-
-
 const mars = require('../img/mars.png');
 const neptune = require('../img/neptune.png');
 const earth = require('../img/earth.png');
 
-//esvhsa to const item
 
 const InfoScreen = ({ navigation, route }) => {
     const { planet } = route.params;
@@ -25,37 +22,41 @@ const InfoScreen = ({ navigation, route }) => {
     };
 
     return (
-        <View>
-            <Text>Πλανήτες</Text>
-            <Text>{planet.title}</Text>
-            <Text>{planet.description}</Text>
+        <View style={styles.container}>
+            <View style={styles.listItems}>
+                <View>
+                    <Text style={styles.title}>Περιγραφή</Text>
+                    <Text style={styles.subTitle}> {planet.description} </Text>
+                </View>
+            </View>
         </View>
     )
 }
 
 
-
-
 const styles = StyleSheet.create ({
-    logo: {
-        width: 50,
-        height: 50,
-    },
-
-    listItems: {
-        width: '80%',
-        height: '80%',
-        marginTop: 25,
-        backgroundColor: 'lightgrey',
-        borderRadius: 10,
-        left: 20,
-        right: 20,
-    },
 
     container: {
         flex: 1,
         flexDirection: 'column',
-        marginTop: StatusBar.currentHeight || 0,
+    },
+    listItems: {
+        width: '100%',
+        height: '80%',
+        marginTop: 25,
+        margin: 10,
+        padding: 10,
+    },
+    title: {
+        fontSize: 20,
+        padding: 5,
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
+    },
+    subTitle: {
+        padding: 10,
+        left: 10,
+        fontSize: 15,
     },
 });
 
