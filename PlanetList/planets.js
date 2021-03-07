@@ -24,4 +24,17 @@ export const planets = [
       picture:
         'https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/images/110411main_Voyager2_280_yshires.jpg',
     },
+
+    {
+      id: '3',
+      title: 'Γη',
+      location: 'Milkyway Galaxy',
+      distance: '54.6m Km',
+      gravity: '3.711 m/s ',
+      description:
+        "Earth is the third planet from the Sun and the only object in the Universe known to harbor life. According to radiometric dating and other sources of evidence, Earth formed over 4 billion years ago. Earth's gravity interacts with other objects in space, especially the Sun and the Moon, Earth's only natural satellite. Earth revolves around the Sun in 365.26 days, a period known as an Earth year. During this time, Earth rotates about its axis about 366.26 times.",
+      image: 'assets/img/earth.png',
+      picture:
+        'https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/iss042e340851_1.jpg',
+    },
 ];

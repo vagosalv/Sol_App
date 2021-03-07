@@ -1,12 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, Component, } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, Component, StatusBar, ScrollView,} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { planets } from '../PlanetList/planets';
+import InfoScreen from './InfoScreen';
 import ShowMoreText from 'react-show-more-text';
 
 
 
 const mars = require('../img/mars.png');
-const neptune = require('../img/neptune.png')
+const neptune = require('../img/neptune.png');
+const earth = require('../img/earth.png');
 
 const getImage = (title) => {
     switch (title) {
@@ -14,19 +17,20 @@ const getImage = (title) => {
             return mars;
         case 'Ποσειδώνας':
             return neptune;
+        case 'Γη':
+            return earth;
     }
 };
 
 const Item = ({ title, location, description, navigation }) => (
-    <View>
+    <View style={styles.container}>
         <View style={styles.listItems}>
             <Image source={getImage(title)} style={styles.logo} ></Image>
+            <Text>Όνομα Πλανήτη: {title}</Text>
+            <Text>Τοποθεσία: {location}</Text>
         </View>
-        <Text>Όνομα Πλανήτη: {title}</Text>
-        <Text>Τοποθεσία: {location}</Text>
-        <Text>Περιγραφή</Text>
-        <Text> {description}</Text>
     </View>
+    //<Text>Περιγραφή:  {description}</Text>
   );
 
 
@@ -34,18 +38,19 @@ const LearnScreen = ({ navigation, route }) => {
     //const renderItem = ({ item }) => (
         //<Item title={item.title} location={item.location} image={item.image} description={item.description} />
      // );
-    
     return (
         <View>
             <Text>Πλανήτες</Text>
             <FlatList
                 data={planets}
-                renderItem={({ item }) => (
-                    <Item title={item.title} location={item.location} image={item.image} description={item.description} />
-                  )}
-                keyExtractor={item => item.id}
-            />
-            <Button color= 'black' title = 'Info swsto' onPress={() => navigation.navigate('Info', {planet: item}) }></Button>
+                renderItem= {({item}) => (
+                    <TouchableOpacity onPress={() => navigation.navigate('Info', {planet: item})}>
+                        <Item title={item.title} location={item.location}></Item>
+                    </TouchableOpacity>
+                )
+                }
+                keyExtractor={item => item.id}> 
+            </FlatList>
         </View>
     )
 }
@@ -60,11 +65,19 @@ const styles = StyleSheet.create ({
     },
 
     listItems: {
-        margin: 10,
-        padding: 10,
         width: '80%',
+        height: '80%',
+        marginTop: 25,
+        backgroundColor: 'lightgrey',
+        borderRadius: 10,
+        left: 20,
+        right: 20,
+    },
+
+    container: {
         flex: 1,
-        alignSelf: 'center',
+        flexDirection: 'column',
+        marginTop: StatusBar.currentHeight || 0,
     },
 });
 
