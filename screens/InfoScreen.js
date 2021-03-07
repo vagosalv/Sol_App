@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, Component, StatusBar, ScrollView,} from 'react-native';
-import { planets } from '../PlanetList/planets';
 
 
 const mars = require('../img/mars.png');
