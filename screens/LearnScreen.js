@@ -19,13 +19,13 @@ const getImage = (title) => {
 };
 
 const Item = ({ title, location}) => (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
         <View style={styles.listItems}>
             <Image source={getImage(title)} style={styles.logo} ></Image>
             <Text style={styles.title}>Όνομα Πλανήτη: {title}</Text>
             <Text style={styles.title}>Τοποθεσία: {location}</Text>
         </View>
-    </View>
+    </ScrollView>
 
   );
 
@@ -56,11 +56,10 @@ const styles = StyleSheet.create ({
         borderRadius: 50,
     },
     listItems: {
-        width: '80%',
-        height: '80%',
+        width: '90%',
         marginTop: 15,
         backgroundColor: 'lightgrey',
-        borderRadius: 10,
+        borderRadius: 20,
         left: 20,
         right: 20,
         padding: 15,
@@ -68,6 +67,7 @@ const styles = StyleSheet.create ({
     container: {
         flex: 1,
         flexDirection: 'column',
+        width: '100%',
     },
     category: {
         fontSize: 25,
