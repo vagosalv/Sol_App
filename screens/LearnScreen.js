@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, Component, StatusBar, ScrollView,} from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
 import { planets } from '../PlanetList/planets';
 
 
@@ -32,6 +32,7 @@ const Item = ({ title, location}) => (
 
 const LearnScreen = ({ navigation, route }) => {
     return (
+        <ImageBackground source={require('../img/spaceman.png')} style={styles.image} resizeMode= "cover">
         <View>
             <Text style={styles.category}>Πλανήτες</Text>
             <FlatList
@@ -45,6 +46,7 @@ const LearnScreen = ({ navigation, route }) => {
                 keyExtractor={item => item.id}> 
             </FlatList>
         </View>
+        </ImageBackground>
     )
 }
 
@@ -82,6 +84,12 @@ const styles = StyleSheet.create ({
         bottom: 30,
         letterSpacing: 1,
     },
+    image: {
+        flex: 1,
+        //aspectRatio: 1.8,
+        //width: 626,
+        //height: 347,
+      },
 });
 
 
