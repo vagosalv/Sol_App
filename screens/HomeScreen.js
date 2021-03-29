@@ -47,8 +47,6 @@ const styles = StyleSheet.create({
 
     image: {
         flex: 1,
-        //aspectRatio: 1.8,
-        //width: 626,
-        //height: 347,
       },
+
 });

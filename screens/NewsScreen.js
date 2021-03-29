@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textDecorationLine: 'underline',
         textAlign: 'center',
+        color: "black",
     },
     news: {
         marginTop: 15,

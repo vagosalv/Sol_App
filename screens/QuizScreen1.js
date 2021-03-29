@@ -6,28 +6,28 @@ import { View, Text, StyleSheet, Button, Alert, SafeAreaView } from 'react-nativ
 //na dw kai me checkbox apo @react-native-community/checkbox
 
 
-const QuizScreen = ({ navigation, route }) => {
+const QuizScreen1 = ({ navigation, route }) => {
 
     const showAlert = () =>{
         Alert.alert(
-           'Alert','Σωστό!!', [{text: 'Επόμενο', onPress: () => navigation.navigate('Quiz1'), color: 'green',}]
+           'Alert','Σωστό!! Απάντησες σωστά σε όλες τις ερωτήσεις!!!', [{text: 'Τέλος', onPress: () => navigation.navigate('Home'), color: 'green',}]
         );
      }
 
     return (
         <View>
-            <Text style={styles.title}>Ερώτηση 1</Text>
+            <Text style={styles.title}>Ερώτηση 2</Text>
             <View style={styles.container}>
-                <Text style={styles.title}>Τι χρώμα έχει ο πλανήτης Άρης;</Text>
+                <Text style={styles.title}>Σε ποιόν πλανήτη βρίσκεται το "Μάτι του μάγου"; </Text>
                 <SafeAreaView >
                     <View style={styles.buttons}>
-                        <Button title=" Μπλε" color="black" onPress={() => {alert('Λάθος, δοκίμασε ξανά!')}}></Button>
+                        <Button title=" Διας" color="black" onPress={() => {alert('Λάθος, δοκίμασε ξανά!')}}></Button>
                     </View>
                     <View style={styles.buttons}>
-                        <Button title="Πρασινο" color="black" onPress={() => {alert('Λάθος, δοκίμασε ξανά!')}}></Button>
+                        <Button title="Αφροδιτη" color="black" onPress={() => {alert('Λάθος, δοκίμασε ξανά!')}}></Button>
                     </View>
                     <View style={styles.buttons}>
-                        <Button title="κοκκινο" color='black' onPress={showAlert}></Button>
+                        <Button title="Ποσειδωνας" color='black' onPress={showAlert}></Button>
                     </View>
                 </SafeAreaView >
             </View>
@@ -36,7 +36,7 @@ const QuizScreen = ({ navigation, route }) => {
 };
 
 
-export default QuizScreen;
+export default QuizScreen1;
 
 const styles = StyleSheet.create({
     container: {
