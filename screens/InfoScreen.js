@@ -1,61 +1,52 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, Component, StatusBar, ScrollView,} from 'react-native';
-
-
-const mars = require('../img/mars.png');
-const neptune = require('../img/neptune.png');
-const earth = require('../img/earth.png');
+import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView} from 'react-native';
 
 
 const InfoScreen = ({ navigation, route }) => {
     const { planet } = route.params;
-    const getImage = (title) => {
-        switch (title) {
-            case 'Άρης':
-                return mars;
-            case 'Ποσειδώνας':
-                return neptune;
-            case 'Γη':
-                return earth;
-        }
-    };
+    
 
     return (
-        <View style={styles.container}>
-            <View style={styles.listItems}>
-                <View>
+        <SafeAreaView style={styles.container}>
+            <ScrollView style={StyleSheet.absoluteFill}>
+                <View style={styles.title}>
+                    <Text style={styles.title}>{planet.title}</Text>
+                    <Image source={{ uri: planet.picture }} style={styles.image}/>
                     <Text style={styles.title}>Περιγραφή</Text>
                     <Text style={styles.subTitle}> {planet.description} </Text>
                 </View>
-            </View>
-        </View>
-    )
-}
+            </ScrollView>
+        </SafeAreaView>
+    );
+};
 
 
 const styles = StyleSheet.create ({
-
     container: {
         flex: 1,
-        flexDirection: 'column',
-    },
-    listItems: {
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: 'white',
         width: '100%',
-        height: '80%',
-        marginTop: 25,
-        margin: 10,
-        padding: 10,
     },
     title: {
-        fontSize: 20,
-        padding: 5,
+        fontSize: 25,
         fontWeight: 'bold',
         textDecorationLine: 'underline',
+        textAlign: 'center',
+        color: "black",
+        padding: 5
     },
     subTitle: {
         padding: 10,
         left: 10,
         fontSize: 15,
+    },
+    image: {
+        padding: 10,
+        margin: 10,
+        width: "90%",
+        height: "30%",
     },
 });
 

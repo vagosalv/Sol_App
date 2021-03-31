@@ -1,11 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList, Button, TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
 import { planets } from '../PlanetList/planets';
 
 
 const mars = require('../img/mars.png');
 const neptune = require('../img/neptune.png');
 const earth = require('../img/earth.png');
+const mercury = require('../img/mercury.png');
+const venus = require('../img/venus.png');
+const jupiter = require('../img/jupiter.png');
+const saturn = require('../img/saturn.png');
+const uranus = require('../img/uranus.png');
+
 
 const getImage = (title) => {
     switch (title) {
@@ -15,6 +21,16 @@ const getImage = (title) => {
             return neptune;
         case 'Γη':
             return earth;
+        case 'Ερμής':
+            return mercury;
+        case 'Αφροδίτη':
+            return venus;
+        case 'Δίας':
+            return jupiter;
+        case 'Κρόνος':
+            return saturn;
+        case 'Ουρανός':
+            return uranus;
     }
 };
 
@@ -65,6 +81,7 @@ const styles = StyleSheet.create ({
         left: 20,
         right: 20,
         padding: 15,
+        opacity: 0.9,
     },
     container: {
         flex: 1,
@@ -76,6 +93,7 @@ const styles = StyleSheet.create ({
         fontWeight: 'bold',
         textAlign: 'center',
         textDecorationLine: 'underline',
+        color: 'white',
     },
     title: {
         fontWeight: 'bold',
@@ -86,9 +104,6 @@ const styles = StyleSheet.create ({
     },
     image: {
         flex: 1,
-        //aspectRatio: 1.8,
-        //width: 626,
-        //height: 347,
       },
 });
 
