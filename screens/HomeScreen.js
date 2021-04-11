@@ -21,14 +21,11 @@ const HomeScreen = ({ navigation}) => {
     );
 };
 
-
 export default HomeScreen;
 
-// h css 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        //justifyContent: 'center',
         padding: 10,
         marginTop: 10,
         marginVertical: 8,

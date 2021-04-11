@@ -8,7 +8,7 @@ const InfoScreen = ({ navigation, route }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView style={StyleSheet.absoluteFill}>
+            <ScrollView style={styles.scroll}>
                 <View style={styles.title}>
                     <Text style={styles.title}>{planet.title}</Text>
                     <Image source={{ uri: planet.picture }} style={styles.image}/>
@@ -47,6 +47,11 @@ const styles = StyleSheet.create ({
         margin: 10,
         width: "90%",
         height: "30%",
+    },
+    scroll: {
+        width: 400,
+        height: 500,
+        paddingTop: 20,
     },
 });
 
